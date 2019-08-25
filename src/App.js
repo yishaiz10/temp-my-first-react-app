@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 import "./App.css";
 import Person from "./Person/Person";
+import Requirements from "./ex1/Requirements";
 
 class App extends Component {
   state = {
@@ -94,6 +95,8 @@ class App extends Component {
         })}
 
         <hr />
+
+        <Requirements></Requirements>
 
         {/* <Person name="aaa" booksCount={4} bookCost={30} />
         <Person name="person with children" booksCount={4} bookCost={30}>

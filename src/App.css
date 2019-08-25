@@ -3,7 +3,7 @@
 }
 
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -12,7 +12,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -21,7 +21,7 @@
 h1 {
   color: rgb(87, 207, 151);
 }
-
+/* 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,7 +29,8 @@ h1 {
   to {
     transform: rotate(360deg);
   }
-}
+} */
+
 button {
   margin:10px;
   font-weight: bold;
