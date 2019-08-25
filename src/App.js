@@ -13,12 +13,13 @@ class App extends Component {
     ]
   };
 
-  switchNameHandler = () => {
+  switchNameHandler = newName => {
     console.log("switch name was clicked");
 
     const persons = this.state.persons;
-
-    persons[0].name = "react";
+    
+    persons[0].name = newName;
+    // this.name = newName;
 
     console.table(persons);
 
@@ -42,13 +43,13 @@ class App extends Component {
       <div className="App">
         <h1>My first react app</h1>
 
-        <button onClick={this.switchNameHandler}>Switch Name</button>
+        {/* <button onClick={this.switchNameHandler}>Switch Name</button> */}
         <button onClick={this.addPersonHandler}>Add Person</button>
 
-        <Person
+        {/* <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
-        />
+        /> */}
         <hr />
         <h2> persons list</h2>
         {this.state.persons.map(person => {
@@ -56,6 +57,8 @@ class App extends Component {
             <Person
               name={person.name}
               age={person.age}
+              // click={this.switchNameHandler.bind(this, 'my new name')}
+              click={() => this.switchNameHandler("my new name using arrow function")}
               // key={person.name}
             />
           );
@@ -63,10 +66,10 @@ class App extends Component {
 
         <hr />
 
-        <Person name="aaa" booksCount={4} bookCost={30} />
+        {/* <Person name="aaa" booksCount={4} bookCost={30} />
         <Person name="person with children" booksCount={4} bookCost={30}>
           i am a children !!!
-        </Person>
+        </Person> */}
       </div>
     );
   }

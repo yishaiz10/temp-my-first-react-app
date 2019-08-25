@@ -1,7 +1,11 @@
 import React from "react";
 
 const person = props => {
-  return <p> I'm a Person, and my name is : {props.name} </p>;
+  return (
+    <div>
+      <p onClick = {props.click}>I'm a Person, and my name is : {props.name} </p>
+    </div>
+  );
 };
 
 export default person;
