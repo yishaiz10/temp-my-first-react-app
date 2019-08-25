@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 
-const app = props => {
+// const app = props => {
+  const App = props => {
   const [personsState, setPersonsState] = useState({
     persons: [
       { name: "Max", age: 28 },
@@ -51,7 +52,8 @@ const app = props => {
   );
 };
 
-export default app;
+// export default app;
+export default App;
 
 /*
 class App extends Component {
