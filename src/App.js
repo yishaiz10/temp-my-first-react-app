@@ -1,7 +1,59 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React, { useState } from "react";
+
 import "./App.css";
 import Person from "./Person/Person";
 
+const app = props => {
+  const [personsState, setPersonsState] = useState({
+    persons: [
+      { name: "Max", age: 28 },
+      { name: "Yishai", age: 30 },
+      { name: "Stephanie", age: 26 }
+    ],
+    otherState: "some other state"
+  });
+
+  const addPersonHandler = () => {
+    const persons = personsState.persons;
+    console.log("addPerson was clicked");
+
+    persons[0].name = "react";
+    persons.push({ name: "new person", age: 100 });
+
+    console.table(persons);
+
+    setPersonsState({ persons: persons });
+  };
+
+  return (
+    <div className="App">
+      <h1>My first react app</h1>
+
+      <button onClick={addPersonHandler}>Add Person</button>
+
+      <Person
+        name={personsState.persons[0].name}
+        age={personsState.persons[0].age}
+      />
+      <hr />
+      <h2> persons list</h2>
+      {personsState.persons.map(person => {
+        return (
+          <Person
+            name={person.name}
+            // key={person.name}
+            age={person.age}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export default app;
+
+/*
 class App extends Component {
   state = {
     persons: [
@@ -50,3 +102,4 @@ class App extends Component {
   }
 }
 export default App;
+*/
