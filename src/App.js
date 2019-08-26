@@ -37,7 +37,15 @@ class App extends Component {
   };
 
   deletePersonHandler = personIndex => {
-    const persons = this.state.persons;
+    // bad
+    // const persons = this.state.persons;
+
+    // es5
+    // const persons = this.state.persons.slice();
+
+    //es6
+    const persons = [...this.state.persons];
+
     persons.splice(personIndex, 1); // remove one element
     this.setState({ persons: persons });
   };
