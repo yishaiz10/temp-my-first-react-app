@@ -5,7 +5,7 @@ const UserOutput = props => {
   return (
     <div className="UserOutput">
       <p>Username : {props.userName}</p>
-      <p>another textxxxxx</p>
+      <p>another text</p>
     </div>
   );
 };
