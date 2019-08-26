@@ -4,8 +4,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 import Requirements from "./ex1/Requirements";
-import UserInput from "./ex1/UserInput";
-import UserOutput from "./ex1/UserOutput";
 
 class App extends Component {
   state = {
@@ -13,8 +11,7 @@ class App extends Component {
       { name: "Max", age: 28 },
       { name: "Yishai", age: 30 },
       { name: "Stephanie", age: 26 }
-    ],
-    outputs: []
+    ]
   };
 
   switchNameHandler = newName => {
@@ -58,28 +55,13 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
-  // outputs =[];
-
-  userInputChangedHandler = data => {
-    // debugger
-    console.log({ data });
-
-    const outputs = this.state.outputs;
-
-    outputs.push(data);
-
-    this.setState({ outputs: outputs });
-    // event.target.value
-    // return null;
-  };
-
   render() {
     const style = {
       backgroundColor: "yellow",
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer"
+      cursor:'pointer'
     };
 
     return (
@@ -115,14 +97,6 @@ class App extends Component {
         <hr />
 
         <Requirements></Requirements>
-        <hr></hr>
-        {/* <UserInput changed={this.userInputChangedHandler.bind(this)}></UserInput> */}
-        <UserInput changed={this.userInputChangedHandler}></UserInput>
-
-        {this.state.outputs.map(item => {
-          return <UserOutput content={item} />;
-        })}
-        {/* // <UserOutput></UserOutput> */}
 
         {/* <Person name="aaa" booksCount={4} bookCost={30} />
         <Person name="person with children" booksCount={4} bookCost={30}>
