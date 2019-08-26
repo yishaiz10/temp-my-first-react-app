@@ -5,9 +5,9 @@ import Person from "./Person/Person";
 class App extends Component {
   state = {
     persons: [
-      { name: "Max", age: 28 },
-      { name: "Manu", age: 29 },
-      { name: "Stephanie", age: 26 }
+      { id: "aascas1", name: "Max", age: 28 },
+      { id: "sdvsdv2", name: "Manu", age: 29 },
+      { id: "svds3", name: "Stephanie", age: 26 }
     ],
     otherState: "some other value",
     showPersons: false
@@ -17,23 +17,37 @@ class App extends Component {
     // console.log('Was clicked!');
     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
     this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: "Manu", age: 29 },
-        { name: "Stephanie", age: 27 }
-      ],
+      // persons: [
+      //   { name: newName, age: 28 },
+      //   { name: "Manu", age: 29 },
+      //   { name: "Stephanie", age: 27 }
+      // ],
       showPersons: false
     });
   };
 
-  nameChangedHandler = event => {
-    this.setState({
-      persons: [
-        { name: "Max", age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: "Stephanie", age: 26 }
-      ]
+  nameChangedHandler = (event, id) => {
+    console.log(id);
+    // const person = this.state.persons.find(p => {
+    //   return p.id == id;
+    // });
+
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id == id;
     });
+
+    // const person = {
+    //   ...this.state.persons[personIndex]
+    // };
+
+    const person = Object.assign({}, this.state.persons[personIndex]);
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({ persons: persons });
   };
 
   deletePersonHandler = personIndex => {
@@ -76,6 +90,7 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 key={index}
+                changed={event => this.nameChangedHandler(event, person.id)}
               />
             );
           })}
