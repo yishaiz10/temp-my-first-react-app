@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 
-// import Person from "../components/Persons/Person";
-// import Persons from "../components/Persons";
+// import "./App.css";
+import classes from './App.css';
 
 // import Person from '../components/Persons/Person/Person';
 import Persons from "../components/Persons/Persons";
@@ -42,39 +41,60 @@ class App extends Component {
     this.setState({ persons: persons });
   };
 
-  // togglePersonsHandler = () => {
-  //   const doesShow = this.state.showPersons;
-  //   this.setState({ showPersons: !doesShow });
-  // };
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
+  };
 
   render() {
+    let persons = null;
+    let btnClass = "";
+
+    btnClass = classes.Red;
+
     // const style = {
-    //   backgroundColor: "white",
+    //   // backgroundColor: "green",
     //   font: "inherit",
+    //   color: "#fff",
     //   border: "1px solid blue",
     //   padding: "8px",
-    //   cursor: "pointer"
+    //   cursor: "pointer",
+    //   height: "55px",
+    //   width: "200px"
     // };
+
+    const assignedClasses = [];
+
+    if ( this.state.persons.length <= 2 ) {
+      // debugger;
+      assignedClasses.push( classes.red ); // classes = ['red']
+    }
+    if ( this.state.persons.length <= 1 ) {
+      
+      assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
+    }
+    console.log({ assignedClasses });
 
     // let persons = null;
 
-    return (
-      <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        {/* <p>This is really working!</p> */}
-
-        {/* <button style={style} onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button>
-        {persons} */}
+    if (this.state.showPersons) {
+      persons = (
         <Persons
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
         />
+      );
+    }
 
-        {/* nameChangedHandler
-  deletePersonHandler = personIndex => { */}
+    return (
+      <div className={classes.App}>
+        <h1>Hi, I'm a React App</h1>
+        <p className={assignedClasses.join(" ")}>This is really working!</p>
+        <button
+          className={btnClass}
+          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+        {persons}
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
