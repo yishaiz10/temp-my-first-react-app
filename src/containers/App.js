@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-// import "./App.css";
-import classes from './App.css';
+import "./App.css";
+// import classes from './App.css';
 
 // import Person from '../components/Persons/Person/Person';
 import Persons from "../components/Persons/Persons";
@@ -50,7 +50,8 @@ class App extends Component {
     let persons = null;
     let btnClass = "";
 
-    btnClass = classes.Red;
+    // btnClass = classes.Red;
+    btnClass = "Red";
 
     // const style = {
     //   // backgroundColor: "green",
@@ -67,11 +68,13 @@ class App extends Component {
 
     if ( this.state.persons.length <= 2 ) {
       // debugger;
-      assignedClasses.push( classes.red ); // classes = ['red']
+      // assignedClasses.push( classes.red ); // classes = ['red']
+      assignedClasses.push( "red" ); // classes = ['red']
     }
     if ( this.state.persons.length <= 1 ) {
       
-      assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
+      // assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
+      assignedClasses.push( "bold" ); // classes = ['red', 'bold']
     }
     console.log({ assignedClasses });
 
@@ -88,7 +91,8 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      // <div className={classes.App}>
+      <div className={"App"}>
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(" ")}>This is really working!</p>
         <button
