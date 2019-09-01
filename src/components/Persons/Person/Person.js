@@ -24,7 +24,8 @@ class Person extends Component {
   render() {
     console.log("[Person.js] rendering ...", this.props);
     return (
-      <Aux>
+      // <Aux>
+      <React.Fragment>
         {/* <div className="Person"> */}
           <p onClick={this.props.click}>
             I'm {this.props.name} and I am {this.props.age} years old!
@@ -36,7 +37,7 @@ class Person extends Component {
             value={this.props.name}
           />
         {/* </div> */}        
-      </Aux>
+        </React.Fragment>
     );
   }
 }
