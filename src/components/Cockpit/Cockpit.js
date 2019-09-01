@@ -8,14 +8,16 @@ const Cockpit = props => {
 
     // Http Request ...
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       console.log("Http Request, save data to cloud");
+      alert("Saved data to cloud!");
     }, 1000);
 
-    return()=>{
+    return () => {
+      clearTimeout(timer);
       console.log("[Cockpit.js] cleanup in useEffect");
-    }
-}, [props.persons]);
+    };
+  }, [props.persons]);
 
   let btnClass = "";
   const assignedClasses = [];
