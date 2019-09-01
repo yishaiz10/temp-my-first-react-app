@@ -4,6 +4,7 @@ import "./Persons.css";
 import Person from "./Person/Person";
 
 const persons = props => {
+  console.log(["Persons.js rendering ...", props]);
   return (
     <div>
       {props.persons.map((person, index) => {
