@@ -10,7 +10,7 @@ const Cockpit = props => {
 
     const timer = setTimeout(() => {
       console.log("Http Request, save data to cloud");
-      alert("Saved data to cloud!");
+      // alert("Saved data to cloud!");
     }, 1000);
 
     return () => {
