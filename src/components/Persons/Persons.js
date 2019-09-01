@@ -26,6 +26,12 @@ class Persons extends Component {
     console.log({ snapshot });
   }
 
+
+  componentWillUnmount() {
+    console.log("[Persons.js] componentWillUnmount");
+  }
+
+
   // componentWillReceiveProps(props) {
   //   console.log("[Persons.js] componentWillReceiveProps", props);
   // }

@@ -5,7 +5,17 @@ import "./Cockpit.css";
 const Cockpit = props => {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
-  });
+
+    // Http Request ...
+
+    setTimeout(() => {
+      console.log("Http Request, save data to cloud");
+    }, 1000);
+
+    // return()=>{
+    //   console.log("[Cockpit.js] cleanup in sueEffect");
+    // }
+  }, [props.persons]);
 
   let btnClass = "";
   const assignedClasses = [];
