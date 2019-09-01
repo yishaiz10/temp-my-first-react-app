@@ -7,22 +7,7 @@ import Person from "./Person/Person";
 // const persons = props => {
 
 class Persons extends PureComponent {
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log("[Persons.js] getDerivedStateFromProps", props);
-  //   return state;
-  // }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if(nextProps.persons !== this.props.persons){
-  //     console.log("[Persons.js] shouldComponentUpdate");
-  //     return true;
-  //   }
-
-  //   else{
-  //     console.log("[Persons.js] shouldComponentUpdate - NO NEED TO UPDATE");
-  //     return false;
-  //   }
-  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("[Persons.js] getSnapshotBeforeUpdate", prevProps, prevState);
@@ -39,10 +24,6 @@ class Persons extends PureComponent {
     console.log("[Persons.js] componentWillUnmount");
   }
 
-
-  // componentWillReceiveProps(props) {
-  //   console.log("[Persons.js] componentWillReceiveProps", props);
-  // }
 
   render() {
     console.log("[Persons.js] rendering ...", this.props);
@@ -65,3 +46,27 @@ class Persons extends PureComponent {
 }
 
 export default Persons;
+
+
+
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("[Persons.js] getDerivedStateFromProps", props);
+  //   return state;
+  // }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if(nextProps.persons !== this.props.persons){
+  //     console.log("[Persons.js] shouldComponentUpdate");
+  //     return true;
+  //   }
+
+  //   else{
+  //     console.log("[Persons.js] shouldComponentUpdate - NO NEED TO UPDATE");
+  //     return false;
+  //   }
+  // }
+
+  
+  // componentWillReceiveProps(props) {
+  //   console.log("[Persons.js] componentWillReceiveProps", props);
+  // }
