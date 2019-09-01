@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import "./Person.css";
 
@@ -25,19 +25,19 @@ class Person extends Component {
     console.log("[Person.js] rendering ...", this.props);
     return (
       // <Aux>
-      <React.Fragment>
+      <Fragment>
         {/* <div className="Person"> */}
-          <p onClick={this.props.click}>
-            I'm {this.props.name} and I am {this.props.age} years old!
-          </p>
-          <p>{this.props.children}</p>
-          <input
-            type="text"
-            onChange={this.props.changed}
-            value={this.props.name}
-          />
-        {/* </div> */}        
-        </React.Fragment>
+        <p onClick={this.props.click}>
+          I'm {this.props.name} and I am {this.props.age} years old!
+        </p>
+        <p>{this.props.children}</p>
+        <input
+          type="text"
+          onChange={this.props.changed}
+          value={this.props.name}
+        />
+        {/* </div> */}
+      </Fragment>
     );
   }
 }
