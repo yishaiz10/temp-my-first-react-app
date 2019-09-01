@@ -12,10 +12,10 @@ const Cockpit = props => {
       console.log("Http Request, save data to cloud");
     }, 1000);
 
-    // return()=>{
-    //   console.log("[Cockpit.js] cleanup in sueEffect");
-    // }
-  }, [props.persons]);
+    return()=>{
+      console.log("[Cockpit.js] cleanup in useEffect");
+    }
+}, [props.persons]);
 
   let btnClass = "";
   const assignedClasses = [];
