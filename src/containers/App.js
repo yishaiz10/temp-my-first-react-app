@@ -19,7 +19,8 @@ class App extends Component {
     ],
     otherState: "some other value",
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -36,19 +37,10 @@ class App extends Component {
     return true;
   }
 
-  // getSnapshotBeforeUpdate(prevProps, prevState) {
-  //   console.log("[Person.js] getSnapshotBeforeUpdate", prevProps, prevState);
-  //   return { message: "Snapshot !" };
-  // }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("[App.js] componentDidUpdate");
     console.log({ snapshot });
   }
-
-  // componentWillMount(){
-  //   console.log("[App.js] componentWillMount");
-  // }
 
   nameChangedHandler = (event, id) => {
     console.log(id);
@@ -64,7 +56,20 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({ persons: persons });
+    /* 
+    this.setState({
+      persons: persons,
+      changeCounter: this.state.changeCounter + 1
+    });
+ */
+
+    this.setState((prevState, props) => {
+      return {
+        persons: persons,
+        changeCounter: this.state.changeCounter + 1
+      };
+    });
+  
   };
 
   deletePersonHandler = personIndex => {
@@ -95,11 +100,6 @@ class App extends Component {
 
     return (
       <div className={"App"}>
-        {/* <h1>Hi, I'm a React App</h1>
-        <p className={assignedClasses.join(" ")}>This is really working!</p>
-        <button className={btnClass} onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button> */}
         <button onClick={() => this.setState({ showCockpit: false })}>
           Remove Cockpit
         </button>
@@ -113,9 +113,27 @@ class App extends Component {
           ></Cockpit>
         ) : null}
         {persons}
+        <div>changes : {this.state.changeCounter}</div>
       </div>
     );
   }
 }
 
 export default App;
+
+// getSnapshotBeforeUpdate(prevProps, prevState) {
+//   console.log("[Person.js] getSnapshotBeforeUpdate", prevProps, prevState);
+//   return { message: "Snapshot !" };
+// }
+
+// componentWillMount(){
+//   console.log("[App.js] componentWillMount");
+// }
+
+{
+  /* <h1>Hi, I'm a React App</h1>
+        <p className={assignedClasses.join(" ")}>This is really working!</p>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </button> */
+}
