@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    console.log(["App.js"]);
+    console.log("[App.js]");
   }
 
   state = {
@@ -22,16 +22,34 @@ class App extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log(["App.js getDerviedStateFromProps", props]);
+    console.log("[App.js] getDerivedStateFromProps", props);
     return state;
   }
 
-  componentDidMount(){
-    console.log(["App.js componentDidMount"]);
+  componentDidMount() {
+    console.log("[App.js] componentDidMount");
   }
 
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[App.js] shouldComponentUpdate", nextProps, nextState);
+    return true;
+  }
+
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   console.log("[Person.js] getSnapshotBeforeUpdate", prevProps, prevState);
+  //   return { message: "Snapshot !" };
+  // }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("[App.js] componentDidUpdate");
+    console.log({ snapshot });
+  }
+
+
+
   // componentWillMount(){
-  //   console.log(["App.js componentWillMount"]);
+  //   console.log("[App.js] componentWillMount");
   // }
 
   nameChangedHandler = (event, id) => {
@@ -64,7 +82,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(["App.js render"]);
+    console.log("[App.js] render");
     let persons = null;
 
     if (this.state.showPersons) {

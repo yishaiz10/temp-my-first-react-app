@@ -5,8 +5,26 @@ import "./Person.css";
 class Person extends Component {
   // const person = props => {
 
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log("[Person.js] shouldComponentUpdate", nextProps, nextState);
+      return true;
+    }
+  
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+      console.log("[Person.js] getSnapshotBeforeUpdate", prevProps, prevState);
+      return { message: "Snapshot !" };
+    }
+  
+    componentDidUpdate(prevProps, prevState, snapshot) {
+      console.log("[Person.js] componentDidUpdate");
+      console.log({ snapshot });
+    }
+  
+
+
+
   render() {
-    console.log(["Person.js rendering ...", this.props]);
+    console.log("[Person.js] rendering ...", this.props);
     return (
       <div className="Person">
         <p onClick={this.props.click}>
