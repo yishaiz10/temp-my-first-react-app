@@ -23,3 +23,8 @@
 {
     color: #fa923f;
 }
+
+.Blog a.my-active 
+{
+    color: red;
+}

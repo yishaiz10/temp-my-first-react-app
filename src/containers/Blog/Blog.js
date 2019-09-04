@@ -16,8 +16,28 @@ class Blog extends Component {
             <ul>
               <li>
                 {/* <a href="/">Home</a> */}
-                <NavLink to="/" exact>Home</NavLink>
+            <NavLink to="/" 
+                exact 
+                activeClassName="active"
+                >Home</NavLink>
+
               </li>
+
+              <NavLink
+                    to="/"
+                    exact
+                    activeClassName="active"
+                    activeStyle={{
+                    color: "pink",
+                    textDecoration: "underline"
+                    }}
+                >
+                  other link
+                </NavLink>
+
+                {/* activeClassName="my-active">Home</NavLink> */}
+
+
               <li>
                 <NavLink
                   to={{
