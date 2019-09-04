@@ -16,8 +16,9 @@ class Posts extends Component {
     this.setState({ selectedPostId: id });
   };
 
-  componentDidMount() {
-      console.log("posts !!!!!!!!!!")
+componentDidMount() {
+    console.log("props", this.props);
+
     axios
       .get("/posts")
       .then(response => {
@@ -48,14 +49,16 @@ class Posts extends Component {
     let posts = <p style={{ textAlign: "center" }}>Something went wrong!</p>;
     if (!this.state.error) {
       posts = this.state.posts.map(post => {
-        return (
-          <Post
-            key={post.id}
-            title={post.title}
-            author={post.author}
-            clicked={() => this.postSelectedHandler(post.id)}
-          />
-        );
+return (
+    <Post
+        key={post.id}
+        title={post.title}
+        author={post.author}
+        {...this.props.match}
+
+        clicked={() => this.postSelectedHandler(post.id)}
+    />
+);
       });
     }
 
