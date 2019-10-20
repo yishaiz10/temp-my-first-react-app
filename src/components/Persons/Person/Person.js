@@ -22,6 +22,11 @@ class Person extends Component {
     console.log({ snapshot });
   }
 
+  // document.querySelector('input').focus();
+  componentDidMount() {
+    this.inputElement.focus();
+  }
+
   render() {
     console.log("[Person.js] rendering ...", this.props);
     return (
@@ -36,6 +41,9 @@ class Person extends Component {
           type="text"
           onChange={this.props.changed}
           value={this.props.name}
+          ref={inputEl => {
+            this.inputElement = inputEl;
+          }}
         />
         {/* </div> */}
       </Fragment>
