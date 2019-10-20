@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import "./Person.css";
+import PropTypes from "prop-types";
 
 // const person = props => {
 import Aux from "../../../hoc/Auxiliary";
@@ -41,5 +42,12 @@ class Person extends Component {
     );
   }
 }
+
+Person.propTypes = {
+  click: PropTypes.func,
+  changed: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number
+};
 
 export default Person;

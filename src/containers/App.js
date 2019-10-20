@@ -18,7 +18,7 @@ class App extends Component {
       { id: "svds3", name: "Stephanie", age: 26 }
     ],
     otherState: "some other value",
-    showPersons: false,
+    showPersons: true,
     showCockpit: true,
     changeCounter: 0
   };
