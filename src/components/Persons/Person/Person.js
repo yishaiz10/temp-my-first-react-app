@@ -7,6 +7,11 @@ import PropTypes from "prop-types";
 import Aux from "../../../hoc/Auxiliary";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElementRef = React.createRef();
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[Person.js] shouldComponentUpdate", nextProps, nextState);
     return true;
@@ -23,9 +28,9 @@ class Person extends Component {
   }
 
   // document.querySelector('input').focus();
-  componentDidMount() {
-    this.inputElement.focus();
-  }
+componentDidMount() {
+  this.inputElementRef.current.focus();
+}
 
   render() {
     console.log("[Person.js] rendering ...", this.props);
@@ -37,14 +42,16 @@ class Person extends Component {
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
         <p>{this.props.children}</p>
-        <input
-          type="text"
-          onChange={this.props.changed}
-          value={this.props.name}
-          ref={inputEl => {
-            this.inputElement = inputEl;
-          }}
-        />
+<input
+  type="text"
+  onChange={this.props.changed}
+  value={this.props.name}
+  // ref={inputEl => {
+  //   this.inputElement = inputEl;
+  // }}
+  ref={this.inputElementRef}
+/>
+
         {/* </div> */}
       </Fragment>
     );
